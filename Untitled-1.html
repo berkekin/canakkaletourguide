@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çanakkale Gezi Rehberi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #000000e8;
+            line-height: 1.6;
+        }
+
+        header {
+            background: url('https://www.example.com/header-bg.jpg') no-repeat center center/cover;
+            color: #ffffff;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 3em;
+            z-index: 1;
+            margin: 0.5em 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #222;
+            padding: 1em 0;
+        }
+
+        nav a {
+            color: #ff3c00;
+            padding: 1em 2em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #1700eb;
+            transform: scale(1.1);
+        }
+
+        .container {
+            padding: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 3em;
+        }
+
+        h2, h3 {
+            text-align: center;
+            margin-bottom: 1em;
+            position: relative;
+        }
+
+        h2::before, h3::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: #ff2600;
+            bottom: -10px;
+            border-radius: 2px;
+        }
+
+        .places div {
+            margin-bottom: 1.5em;
+            background: #fff;
+            padding: 1em;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .places div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            
+            color: #ff2600;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover {
+            background-color: #1700eb;
+        }
+        
+
+
+        /* Galeri */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Galeri Animasyonları */
+.gallery {
+    opacity: 0;
+    transform: translateY(50%);
+    animation: fadeInGallery 1s ease forwards;
+}
+
+@keyframes fadeInGallery {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery img {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInImg 0.5s ease forwards;
+}
+
+@keyframes fadeInImg {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin: 2em 0;
+        }
+
+        .video-container iframe {
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: #222;
+            color: #ff2600;
+            text-align: center;
+            padding: 1em 0;
+            position: relative;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+                padding: 1em 0;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        #about {
+            animation: slideInLeft 1s ease-in-out;
+        }
+
+        #places {
+            animation: slideInRight 1s ease-in-out;
+        }
+
+        #gallery {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #video {
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Çanakkale Gezi Rehberi</h1>
+    </header>
+    <nav>
+        <a href="#about">Hakkında</a>
+        <a href="#places">Gezilecek Yerler</a>
+        <a href="#gallery">Galeri</a>
+        <a href="#video">Tanıtım Videosu</a>
+        <a href="http://www.canakkale.gov.tr/" target="_blank" class="button">Çanakkale Valiliği</a>
+
+    </nav>
+    <div class="container">
+        <section id="about">
+            <h2>Çanakkale Hakkında</h2>
+            <p>Çanakkale, Türkiye'nin Çanakkale ilinin merkezi olan şehirdir. Anadolu'nun kuzeybatısında, Çanakkale Boğazı'nın güneydoğusunda yer alır. Nüfusu 2021 yılına göre 195.439 kişidir. Çanakkale'nin şu anki bulunduğu yerin adı 19. yüzyılda Kale-i Sultaniye olarak geçmektedir ve bu isim 1890 yılında şehrin resmî adı olarak kayıtlara geçmiştir. Çanakkale Osmanlı zamanında önemli bir kale işlevi görmüş olup, Kale-i Sultaniye (Osmanlı Türkçesi: قلعة سلطانيه) ya da günümüz Türkçesi ile Sultaniye Kalesi ismi bu işlevin bir kanıtıdır. 17. yüzyılın sonlarından itibaren gelişen çömlek yapımı, şehrin bu konuda ün yapmasını sağlamıştır. Hatta yine bu zamanlarda bir seyyahın yapılan seramiğin kalitesinden etkilenip, bunu Hollanda'nın Delft şehrinde yapılan seramiklerle karşılaştırması şehre Çanak kalesi ismini vermiştir. Çanakkale isminin Yunanca'sı Δαρδανέλλια veya Dardanellia, ki bu isim de sonradan Dardanelles olarak İngilizceye çevrilmiştir. 1920'lerden itibaren İngilizler Çanakkale'ye Chanak veya Kale Sultanie demeye başladılar.</p>
+        </section>
+        <section id="places">
+            <h2>Gezilecek Yerler</h2>
+            <div class="places">
+                <div>
+                    <h3>Truva Antik Kenti</h3>
+                    <p>ruva, dünyadaki en ünlü antik kentlerden birisidir. Truva’da görülen 9 katman, kesintisiz olarak 3000 yıldan fazla bir zamanı göstermekte ve Anadolu, Ege ve Balkanların buluştuğu bu benzersiz coğrafyada yerleşmiş olan uygarlıkları izlememizi sağlamaktadır. Truva’daki en erken yerleşim katı M.Ö. 3000-2500 ile erken Bronz Çağı’na tarihlenmektedir, daha sonra sürekli yerleşim gören Truva katmanları M.Ö. 85 – M.S. 8. yüzyıla tarihlenen Roma Dönemi ile sona ermektedir. Truva, bulunduğu coğrafi konum nedeniyle burada hüküm süren uygarlıkların diğer bölgelerle ticari ve kültürel bağlantıları açısından daima çok önemli bir rol üstlenmiştir. Truva ayrıca gösterdiği kesintisiz katmanlaşma ile Avrupa ve Ege’deki diğer arkeolojik alanlar için referans görevi görmektedir. İlk olarak 1871’de Heinrich Schliemann, daha sonra W. Dörpfeld, C.W Blegen tarafından kazılmış olan bu görkemli arkeolojik şehirde kazılar halen Tübingen Üniversitesi tarafından sürdürülmektedir.</p>
+                </div>
+                <div>
+                    <h3>Çanakkale Şehitler Abidesi</h3>
+                    <p>Çanakkale Şehitleri Anıtı, Çanakkale il ve Eceabat ilçe sınırları içindeki Gelibolu Yarımadası'nda, Çanakkale Boğazı'nın ucunda Morto Koyu önündeki Hisarlık Tepe üzerinde yer alan anıt.
+
+                        1915 yılında I. Dünya Savaşı sırasında Çanakkale Savaşları'nda hayatını kaybeden Türk askerlerin anısına yaptırıldı. Dört ayak ve bir kubbeden oluşan 41,7 metre yüksekliğindeki yapı, Feridun Kip, İsmail Utkular ve Doğan Erginbaş tarafından tasarlanmıştır. Temeli 17 Nisan 1954 tarihinde atılmış ve 21 Ağustos 1960 tarihinde ziyarete açılmıştır.
+                        
+                        Yanında Mehmetçik Anıtı, Türk Bahçesi, Mustafa Kemal Çanakkale'de Anıtı, Yaralı Asker Anıtı, Meçhul Asker Kabri ve Türk Şehitliği bulunur.</p>
+                </div>
+                <div>
+                    <h3>Çanakkale Troya Müzesi</h3>
+                    <p>Troya Müzesi, Çanakkale'nin Tevfikiye Köyü'nde Troya Antik Kenti'nin girişinde yer almaktadır. 11.200 metrekarelik bir alana yayılıyor ve 3.000 metrekarelik bir sergi salonuna sahip. İnşaatına 2013 yılında başlanan müze, 2015 yılındaki bir gecikmenin ardından Ekim 2018'de tamamlandı. Müze turu alçalan rampayla başlıyor. Rampanın duvarlarındaki nişler, mezar taşları, heykeller, sahne canlandırmaları ve fotoğraflarla Truva'nın farklı katmanlarını anlatıyor. Müzenin girişindeki sirkülasyon şeması arkeoloji bilimini, arkeolojik ve arkeometrik tarihlendirme yöntemlerini, Neolitik, Kalkolitik, Tunç Çağı, Demir Çağı, höyük, restorasyon ve konservasyon gibi kavramları diyagramlar, çizimler, metinler ve interaktif yöntemlerle anlatmaktadır. Sergide taş heykeller, lahitler, yazıtlar, sunaklar, kilometre taşları, Paleolitik baltalar ve kesiciler, seramikler, metal kaplar, altın, silahlar, madeni paralar, kemik objeler ve aletler, cam bilezikler, süs eşyaları, bardaklar, parfüm şişeleri gibi çeşitli eserler yer alıyor. ve gözyaşı şişeleri. Müze bahçesinde taş eserler, lahitler, sütunlar, steller ve sütun başlıkları manzarayla bütünleşecek şekilde sergileniyor. Müzede görsel grafik tasarımların yanı sıra dioramalar (ışık efektleri yardımıyla bir anı veya hikayeyi tasvir eden 3 boyutlu modeller), dokunmatik ekranlar ve animasyonların yer aldığı sergiler de sunuluyor.</p>
+                </div>
+                <div>
+                    <h3>Aynalı Çarşı</h3>
+                    <p>Aynalı Çarşı, (ya da Halyo Çarşısı) Çanakkale'de bulunan kapalı çarşı. 1890 senesinde şehrin Musevi cemaatinin ileri gelenlerinden Eliyau Hallio tarafından yaptırılmıştır. Kapı kitabesinin üzerinde Osmanlıca ve İbrani Harfli Ladino iki yazı bulunmaktadır. Osmanlıca olan yazıda çarşının "Abdülhamid Han-ı Sani El Gazi (II. Abdülhamid) efendimizin saye-i ihsaniye ve riayetperverîlerinde tebaa-yı sadıka-yı Museviyye'sinden Elya Halyo bendeleri" tarafından yaptırıldığı ifade edilmiştir. Ladino olan kitabede ise çarşının Yahudi Takvimi'ne göre 5650 yılının Tişri ayında "Sultan İkinci Abdülhamid'in saltanatının 14. yılı münasebetiyle Eliyau Hallio tarafından yaptırıldığı" yazılmıştır. Çarşının asıl adı "Passage Hallio"dur. Ancak girişinde her iki taraftaki aynalardan ötürü Aynalı Çarşı olarak ünlenmiştir. Çanakkale'nin meşhur Çanakkale Türküsü'nde de Aynalı Çarşı'nın adı geçmektedir.
+                        Çarşı, Gelibolu Savaşı sırasında bombalanmış ve yangınlarla yıkıntı haline gelmiştir. Mondros Ateşkes Anlaşması peşi sıra Çanakkale’yi işgal eden İngilizler, işgal süresince (1918-1921) çarşıyı atlarının barınağı, “ahır” olarak değerlendirdiler. 1921’nin ardından bir süre, (giriş kapısı haricinde) harabe olarak kalmış ve kullanılmamıştır. Tapu kadastro kayıtlarında bedesten arsası olarak gözüken alana daha sonraları dükkanlar yapılmıştır. 1934 yılında ise Yahudilere saldırı ve yağmalama olaylarında kapıdaki kitabesi sıvanmış, 1967'de Sadi Fenercigil’in belediye başkanlığında döneminde bugünkü halini almıştır.[1] Yapı, Çanakkale Belediyesi'ne aittir.</p>
+                </div>
+                <div>
+                    <h3>Kilitbahir Kalesi</h3>
+                    <p>Kilitbahir Kalesi (Türkçe: Kilitbahir Kalesi), Çanakkale Boğazı'nın batı yakasında, Çanakkale şehrinin karşısında, Çanakkale'nin adını aldığı buna karşılık gelen bir kalenin (Kale-i Sultaniye) bulunduğu bir kaledir. İki kale, boğazları en dar noktada kontrol altına almak amacıyla 1463 yılında Fatih Sultan Mehmet tarafından yaptırılmıştır. Kilitbahir'in "deniz kilidi" anlamına gelen adı da bu savunma amacını yansıtmaktadır. Kandiye'nin uzun süren kuşatması nedeniyle Çanakkale Boğazı'nın güçlendirilmesi amacıyla kale ve Kale-i Sultaniye onarılmıştır.</p>
+                </div>
+            </div>
+        </section>
+        <section id="gallery">
+            <h2>Galeri</h2>
+            <div class="gallery">
+                <img src="https://basin.ktb.gov.tr/Resim/35505,dsc6412345678enhancerjpg.png?0" alt="Truva Antik Kenti">
+                <img src="https://www.kulturportali.gov.tr/contents/images/Abide%20(10).jpg" alt="Çanakkale Şehitler Abidesi">
+                <img src="https://muze.gov.tr/s3/SectionPicture/SP_72b7083e-ac84-418f-8692-d4a6a6ab5f8b.jpg" alt="Çanakkale Troya Müzesi">
+                <img src="https://www.memurlar.net/common/news/images/436540/canakkale-aynali-carsi-esnafi-egitilecek.jpg" alt="Aynalı Çarşı">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Eceabat_Kilitbahir_Fortress.JPG" alt="Kilitbahir Kalesi">
+            </div>
+        </section>
+        <section id="video">
+            <h2>Tanıtım Videosu</h2>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://youtu.be/jJiktTjfqng" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Çanakkale Gezi Rehberi (BERK EKİN)</p>
+    </footer>
+</body>
+</html>
